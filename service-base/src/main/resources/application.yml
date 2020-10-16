@@ -1,0 +1,39 @@
+graphql:
+  federation:
+    enabled: true
+  packages:
+    - "com.expediagroup"
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: service-base
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  #    initialization-mode:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    #    generate-ddl: true
+    #    hibernate:
+    #      ddl-auto: a
+    properties:
+      hibernate:
+        format_sql: true
+  #      javax:
+  #        persistance:
+  #          schema-generation:
+  #            scripts:
+  #              action: create
+  #              create-target: create-sql
+  #              create-source: metadata
+
+  h2:
+    console:
+      enabled: true
