@@ -30,13 +30,17 @@ allprojects {
     jcenter()
     mavenCentral()
   }
+
+
 }
 
 subprojects {
 
   extra["testcontainersVersion"] = "1.14.3"
 
+  println("Enabling kotlin plugin in ${project.name}")
   apply(plugin = "kotlin")
+  println("Enabling Dependency plugin in ${project.name}")
   apply(plugin = "io.spring.dependency-management")
 
   dependencies {
@@ -62,10 +66,14 @@ subprojects {
     }
   }
 
+  println("Setting kotlin compile in ${project.name}")
   tasks.withType<KotlinCompile> {
     kotlinOptions {
       freeCompilerArgs = listOf("-Xjsr305=strict")
       jvmTarget = "11"
     }
   }
+
 }
+
+

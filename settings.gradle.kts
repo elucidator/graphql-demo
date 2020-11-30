@@ -1,7 +1,11 @@
-rootProject.name = "Elucidator GrahpQL Demo"
+rootProject.name = "Elucidator-GrahpQL-Demo"
+include("service-model")
 include("service-book")
 include("service-base")
 include("service-extension")
+include("service-book-extension")
+
+project(":service-base").projectDir = File("service-base")
 
 
 

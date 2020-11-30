@@ -1,10 +1,7 @@
 package nl.elucidator.graphql.demo
 
-
-import nl.elucidator.graphql.demo.model.BookImpl
-import nl.elucidator.graphql.demo.model.CommentImpl
-import nl.elucidator.graphql.demo.model.DefaultLocation
-import nl.elucidator.graphql.demo.model.ReviewImpl
+import nl.elucidator.graphql.demo.model.base.Book
+import nl.elucidator.graphql.demo.model.base.Review
 import org.hibernate.boot.MetadataSources
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder
 import org.hibernate.cfg.Environment
@@ -27,10 +24,8 @@ class SchemaGenerator {
     val serviceRegistry = StandardServiceRegistryBuilder().applySettings(settings).build()
 
     val metadataSources = MetadataSources(serviceRegistry)
-    metadataSources.addAnnotatedClass(BookImpl::class.java)
-    metadataSources.addAnnotatedClass(CommentImpl::class.java)
-    metadataSources.addAnnotatedClass(DefaultLocation::class.java)
-    metadataSources.addAnnotatedClass(ReviewImpl::class.java)
+    metadataSources.addAnnotatedClass(Book::class.java)
+    metadataSources.addAnnotatedClass(Review::class.java)
 //    metadataSources.addAnnotatedClass(AccountSetting::class.java)
     val metadata = metadataSources.buildMetadata()
 
